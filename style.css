@@ -1,0 +1,164 @@
+/* Reset dasar dan gaya body */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+@font-face {
+    font-family: Helvetica;
+    src: url('./Helvetica.woff');
+}
+
+/* Kontainer utama (setara dengan div terluar) */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
+    font-family: 'Helvetica';
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+/* Judul "About Developer" */
+.title {
+    text-align: center;
+    margin-top: 50px;
+}
+.title h1:first-child {
+    font-size: 30px;
+    font-weight: 700;
+}
+.title h1:last-child {
+    font-size: 35px;
+    font-weight: 600;
+}
+
+/* Kontainer untuk kedua kartu */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center; /* Menengahkan kartu di mobile */
+}
+
+/* Gaya dasar untuk setiap kartu */
+.card {
+    background-color: #fefefe;
+    width: 200px;
+    height: min-content;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    color: black;
+    padding: 20px;
+}
+ 
+
+/* Efek Zig-zag di mobile */
+.card-1 { align-self: flex-start; margin-left: 20px; padding-top: 25px; padding-left: 0px; }
+.card-2 { align-self: flex-end; margin-right: 20px; padding-top: 30px; padding-right: 0px; }
+
+/* Foto developer */
+.card .photo {
+    width: 165px;
+    height: 130px;
+    z-index: 2;
+    background-color: black;
+    object-fit:contain;
+}
+/* Posisi foto dan rounded-corner yang unik */
+.card-1 .photo { align-self: flex-start; border-top-right-radius: 10px; border-bottom-right-radius: 10px; }
+.card-2 .photo { align-self: flex-end; border-top-left-radius: 10px; border-bottom-left-radius: 10px; }
+
+/* Nama developer */
+.card h2 {
+    font-weight: 600;
+    color: black;
+    margin: 10px 0;
+    font-size: medium;
+}
+
+/* Ikon sosial media */
+.social-icons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.social-icons img {
+    width: 24px; /* Ukuran default ikon */
+}
+
+/* Teks deskripsi */
+.card p {
+    color: black;
+    font-size: 10px;
+    width: 140px;
+    text-align: start;
+    margin: 0;
+}
+
+/* === Media Query untuk Tampilan Medium (Tablet) === */
+@media (min-width: 768px) {
+    .container {
+        height: auto;
+        gap: 20px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    .title {
+        margin-top: 0;
+    }
+    .title h1:first-child { font-size: 60px; }
+    .title h1:last-child { font-size: 65px; }
+
+    .card {
+        width: 350px;
+        height: 550px;
+        gap: 10px;
+    }
+    .card .photo {
+        width: 285px;
+        height: 250px;
+    }
+    .card h2 {
+        font-size: 25px;
+    }
+    .social-icons {
+        gap: 20px;
+    }
+    .social-icons img {
+        width: 35px;
+    }
+    .card p {
+        font-size: 15px;
+        width: 270px;
+    }
+}
+
+/* === Media Query untuk Tampilan Large (Desktop) === */
+@media (min-width: 1024px) {
+    .title h1:first-child { font-size: 50px; }
+    .title h1:last-child { font-size: 55px; }
+
+    .cards-container {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center; /* Vertically center cards */
+    }
+
+    /* Efek zig-zag dihilangkan di desktop, kartu sejajar */
+    .card-1, .card-2 {
+        align-self: auto;
+    }
+}
